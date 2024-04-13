@@ -37,7 +37,7 @@ const App = () => {
   }
 
   const handleSpinEnd = () => {
-    const message = `축하합니다! 선물은 ${prizeItems[prizeNumber].option}입니다!`;
+    const message = `우와~! 선물은 ${prizeItems[prizeNumber].option}입니다!`;
     setModalContent(message);
     setMustSpin(false);
 
