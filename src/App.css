@@ -84,10 +84,10 @@ p {
 
 @keyframes pointer-wiggle {
   0%, 100% {
-    transform: rotate(8deg);
+    transform: rotate(7deg);
   }
   70% {
-    transform: rotate(-4deg);
+    transform: rotate(-3deg);
   }
   75% {
     transform: rotate(2deg);
