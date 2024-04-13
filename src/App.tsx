@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "./App.css";
 import RouletteWheel from './RouletteWheel';
 import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types';
