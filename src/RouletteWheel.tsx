@@ -9,19 +9,25 @@ type RouletteWheelProps = {
   onStopSpinning: () => void;
 };
 
-const RouletteWheel: React.FC<RouletteWheelProps> = ({ data, mustStartSpinning, prizeNumber, onStopSpinning }) => {
+const RouletteWheel: React.FC<RouletteWheelProps> = ({ data, mustStartSpinning, prizeNumber, onStopSpinning }) => {  
+
   return (
-    <Wheel 
+    <Wheel
       mustStartSpinning={mustStartSpinning}
       prizeNumber={prizeNumber}
       data={data}
       backgroundColors={['#E46E80', '#F18575', "#FBC85B", "#32B9C1", "#77b2ff", "#8579EF"]}
       textColors={['#ffffff']}
-      onStopSpinning={onStopSpinning}      
+      onStopSpinning={onStopSpinning}
       outerBorderWidth={4}
       outerBorderColor="#CACFD9"
       radiusLineColor=""
       spinDuration={0.5}
+      pointerProps={{        
+        style: {          
+          animation: mustStartSpinning ? 'pointer-wiggle 0.4s ease-in-out infinite' : 'none'          
+        }
+      }}
     />
   )
 }

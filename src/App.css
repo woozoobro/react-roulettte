@@ -81,3 +81,15 @@ p {
   transform: scale(1);
   opacity: 1;
 }
+
+@keyframes pointer-wiggle {
+  0%, 100% {
+    transform: rotate(1deg);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
