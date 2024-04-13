@@ -10,11 +10,12 @@ interface WeightedWheelData extends WheelData {
 
 const App = () => {
   const prizeItems: WeightedWheelData[] = [
+    { option: "꽝", weight: 20 },
     { option: "광택용 천", weight: 2 },
     { option: "스댕리", weight: 1 },
+    { option: "꽝", weight: 25 },    
     { option: "벨킨 맥세이프", weight: 1 },
-    { option: "모프트 거치대", weight: 1 },
-    { option: "꽝", weight: 45 },
+    { option: "모프트 거치대", weight: 1 },    
   ];
 
   const [mustSpin, setMustSpin] = useState(false);
