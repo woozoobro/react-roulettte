@@ -1,4 +1,7 @@
-/* 전체 페이지에 적용되는 기본 스타일 */
+* {
+  box-sizing: border-box; /* 모든 요소에 box-sizing 적용 */
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -10,11 +13,12 @@ body, html {
 @media only screen and (max-width: 600px) {
   /* 화면 너비가 600px 이하일 때 적용할 스타일 */
   .App-header {
-    padding: 20px;
+    /* padding: 20px; */
     width: 90%;
+    height: 100%;
   }
 
-  button {
+  button {    
     padding: 12px 24px;
     font-size: 14px;
   }
@@ -42,7 +46,7 @@ body, html {
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
-  width: 100%;
+  width: 100%;  
   max-width: 600px;
 }
 
