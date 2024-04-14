@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./App.css";
 import RouletteWheel from './RouletteWheel';
 import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types';
@@ -9,6 +9,14 @@ interface WeightedWheelData extends WheelData {
 }
 
 const App = () => {
+  const [tries, setTries] = useState(0);
+
+  useEffect(() => {
+    // 컴포넌트 마운트 시 로컬 스토리지에서 트라이 횟수를 로드합니다.
+    const savedTries = parseInt(localStorage.getItem('rouletteTries') || '0', 10);
+    setTries(savedTries);
+  }, []);
+
   const prizeItems: WeightedWheelData[] = [
     { option: "꽝", weight: 15 },
     { option: "광택용 천", weight: 2 },
@@ -23,6 +31,9 @@ const App = () => {
   const [modalContent, setModalContent] = useState('');
 
   const handleSpinClick = () => {
+    const newTries = tries + 1;
+    setTries(newTries);
+    localStorage.setItem('rouletteTries', newTries.toString()); 
     const totalWeight = prizeItems.reduce((acc, item) => acc + item.weight, 0);
     const randomNum = Math.random() * totalWeight;
     let weightSum = 0;
@@ -61,6 +72,7 @@ const App = () => {
           onStopSpinning={handleSpinEnd}
         />
         <button onClick={handleSpinClick} disabled={mustSpin}>뽑기</button>
+        <p>뽑기 시도 횟수: {tries}</p>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -87,6 +99,7 @@ const App = () => {
         >
           <h2>축하합니다!</h2>
           <div>{modalContent}</div>
+          {prizeItems[prizeNumber].option !== "꽝" && <div>{tries}트 만에 성공..</div>}
           <button onClick={closeModal}>확인</button>
         </Modal>
       </header>

@@ -6,6 +6,23 @@ body, html {
   font-family: 'Arial', sans-serif;
 }
 
+@media only screen and (max-width: 600px) {
+  /* 화면 너비가 600px 이하일 때 적용할 스타일 */
+  .App-header {
+    padding: 20px;
+    width: 90%;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
 /* 앱 전체를 중앙에 배치하고 기본 스타일링을 적용 */
 .App {
   text-align: center;
