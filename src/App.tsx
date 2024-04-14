@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import "./App.css";
 import RouletteWheel from './RouletteWheel';
 import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types';
@@ -10,6 +10,7 @@ interface WeightedWheelData extends WheelData {
 
 const App = () => {
   const [tries, setTries] = useState(0);
+  const spinSound = useRef(new Audio("/roulette.mp3"));
 
   useEffect(() => {
     // 컴포넌트 마운트 시 로컬 스토리지에서 트라이 횟수를 로드합니다.
@@ -31,6 +32,7 @@ const App = () => {
   const [modalContent, setModalContent] = useState('');
 
   const handleSpinClick = () => {
+    spinSound.current.play();
     const newTries = tries + 1;
     setTries(newTries);
     localStorage.setItem('rouletteTries', newTries.toString()); 
@@ -51,7 +53,8 @@ const App = () => {
     const message = `우와~! 선물은 ${prizeItems[prizeNumber].option}입니다!`;
     setModalContent(message);
     setMustSpin(false);
-
+    spinSound.current.pause(); // 룰렛이 멈추면 사운드 멈춤
+    spinSound.current.currentTime = 0; // 사운드 시간을 초기화
     setTimeout(() => {
       setModalIsOpen(true);
     }, 300);

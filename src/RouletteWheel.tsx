@@ -25,7 +25,8 @@ const RouletteWheel: React.FC<RouletteWheelProps> = ({ data, mustStartSpinning, 
       spinDuration={0.5}
       pointerProps={{        
         style: {          
-          animation: mustStartSpinning ? 'pointer-wiggle 0.4s ease-in-out infinite' : 'none'          
+          animation: mustStartSpinning ? 'pointer-wiggle 0.4s ease-in-out infinite' : 'none',
+          animationDelay: mustStartSpinning ? '0.68s' : '0s' 
         }
       }}
     />
