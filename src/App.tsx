@@ -22,8 +22,7 @@ const App = () => {
     { option: "꽝", weight: 15 },
     { option: "광택용 천", weight: 2 },
     { option: "스댕리", weight: 1 },    
-    // { option: "벨킨 맥세이프", weight: 1 },
-    { option: "꽝", weight: 1 },
+    { option: "벨킨 맥세이프", weight: 1 },    
     { option: "모프트 거치대", weight: 1 },    
   ];
 
